@@ -27,6 +27,7 @@ public class FindDuplicates {
         Map<Integer, Long> numberCountMap = Arrays.stream(numbers)
                 .boxed()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println("numberCounbtMap" + numberCountMap );
 
     }
 }
