@@ -1,0 +1,6 @@
+Anil 30
+Jay 80
+Sunil 90
+Mike 70
+kamal 60
+vimal 50
