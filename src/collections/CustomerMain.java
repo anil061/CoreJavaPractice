@@ -1,8 +1,12 @@
 package collections;
 
-import java.util.Arrays;
-import java.util.List;
+import Java8.grouping;
+
+import java.util.*;
+import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
 
 public class CustomerMain {
     public static void main(String[] args) {
@@ -16,7 +20,13 @@ public class CustomerMain {
         List<Customer> listOfVision  = customerList.stream().filter(x -> "Vision".equalsIgnoreCase(x.getCategory()))
                 .collect(Collectors.toList());
 
+        Comparator<Customer> compareByCategory = Comparator.comparing(Customer::getCategory);
+        Map<String, Optional<Customer>> customerMap = customerList.stream()
+                .collect(
+                        groupingBy(Customer::getPolicyId, Collectors.reducing(BinaryOperator.maxBy(compareByCategory)))
+                );
 
+        System.out.println(customerMap);
     }
 
 }

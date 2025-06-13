@@ -68,7 +68,4 @@ public class Customer {
     public void setCategory(String category) {
         this.category = category;
     }
-    public int compareTo(Obj){
-
-    }
 }
