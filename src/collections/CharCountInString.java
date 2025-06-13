@@ -17,6 +17,6 @@ public class CharCountInString {
                         Function.identity(),
                         Collectors.counting()
                 ));
-        frequencyOfChars.forEach((k,v)-> System.out.println(k + " ::" + v));
+        frequencyOfChars.forEach((k,v)-> System.out.println(k + " :: " + v));
     }
 }
