@@ -11,7 +11,7 @@ public class SwapCharacters {
 
     private static String swapEachCharacter(String input) {
         char[] charArray = input.toCharArray();
-        String string = charArray.toString();
+        charArray.toString();
         for(int i= 0; i<charArray.length-1; i++){
             char c = charArray[i];
             charArray[i] = charArray[i+1];
