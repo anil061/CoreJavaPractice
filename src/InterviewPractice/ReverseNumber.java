@@ -8,7 +8,9 @@ public class ReverseNumber {
         int num = sc.nextInt();
         System.out.println("Enter a number " + num);
         int reverseNumber = ReverseNumber.extracted(num);
+        int numReverse = ReverseNumber.numExtracted(num);
         System.out.println("ReverseNumber " + reverseNumber);
+        System.out.println("numReverse " + numReverse);
         sc.close();
     }
 
@@ -20,5 +22,15 @@ public class ReverseNumber {
             number /= 10;
         }
         return reverseNum;
+    }
+
+    private static int numExtracted(int number){
+        int reverseNo = 0;
+        while(number != 0){
+            int d = number % 10;
+            reverseNo = reverseNo * 10 + d;
+            number /=10;
+        }
+        return reverseNo;
     }
 }

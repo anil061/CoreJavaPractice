@@ -26,7 +26,7 @@ public class CustomerMain {
                         groupingBy(Customer::getPolicyId, Collectors.reducing(BinaryOperator.maxBy(compareByCategory)))
                 );
 
-        System.out.println(customerMap);
+        System.out.println("customerMap:::" + customerMap);
     }
 
 }

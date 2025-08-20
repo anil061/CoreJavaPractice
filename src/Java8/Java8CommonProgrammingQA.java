@@ -28,13 +28,12 @@ public class Java8CommonProgrammingQA {
         // System.out.println(students);
 
         //2. Find the Students who stays in Karnataka and sort them by their names
-/*
         List<Student> studentsByCity = studentList.stream().filter(student -> student.getCity().equals("Karnataka"))
-                .sorted(Comparator.comparing(Student::getFirstName,Comparator.reverseOrder())).collect(Collectors.toList());*/
-        List<Student> studentsByCity = students.stream().filter(s-> s.getCity().equals("Karnataka"))
-                .sorted(Comparator.comparing(Student:: getFirstName))
-                .collect(Collectors.toList());
-        //System.out.println(studentsByCity);
+                .sorted(Comparator.comparing(Student::getFirstName,Comparator.reverseOrder())).collect(Collectors.toList());
+
+       // System.out.println(studentsByCity);
+
+        //System.out.println("Students Stayed in Karnataka" + studentsByCity);
 
         // 3. Find all departments names
 
@@ -64,15 +63,20 @@ public class Java8CommonProgrammingQA {
 
         Map<String, List<Student>> studentMap = studentList.stream()
                 .collect(Collectors.groupingBy(Student::getDept));
+        Map.Entry<String, Long> minimumNoStd = studentList.stream()
+                .collect(Collectors.groupingBy(Student::getDept, Collectors.counting()))
+                .entrySet().stream().min(Map.Entry.comparingByValue()).get();
+        System.out.println("minimumNoStd =====>" + minimumNoStd);
         // System.out.println(studentMap);
 
 
         //6. Find the department who is having maximum number of students
-        Map.Entry<String, Long> results = studentList.stream()
+        Map.Entry<String, Long> maxNoStd = studentList.stream()
                 .collect(Collectors.groupingBy(Student::getDept, Collectors.counting()))
                 .entrySet().stream().max(Map.Entry.comparingByValue()).get();
 
-        //System.out.println("result ==>"+ results);
+
+        System.out.println("maxNoStd ==>"+ maxNoStd);
 
         //7. Find the average age of male and female students
 
@@ -87,7 +91,7 @@ public class Java8CommonProgrammingQA {
 
         Map<String, Optional<Student>> stdMaxMap = studentList.stream()
                 .collect(Collectors.groupingBy(Student::getDept, Collectors.maxBy(Comparator.comparing(Student::getRank))));
-        //System.out.println("stdmaxMap==>" + stdMaxMap);
+        System.out.println("stdmaxMap==>" + stdMaxMap);
 
         Map<String, Optional<Student>> stdMap = studentList.stream()
                 .collect(Collectors.groupingBy(Student::getDept,

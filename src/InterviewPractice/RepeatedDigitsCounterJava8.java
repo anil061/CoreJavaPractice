@@ -2,10 +2,12 @@ package InterviewPractice;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class RepeatedDigitsCounterJava8 {
     public static void main(String[] args) {
-        long number = 122334455667788L;
+        long number = 122334455677887L;
 
         String numberStr = Long.toString(number);
 
@@ -26,5 +28,13 @@ public class RepeatedDigitsCounterJava8 {
                 System.out.println(digit + ": " + count);
             }
         });
+
+        Map<Character, Long> alternativeCount = numberStr.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        alternativeCount.forEach((x,y)->{
+            System.out.println("number x " + x + " Count Y " + y);
+        });
+
     }
 }

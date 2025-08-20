@@ -43,6 +43,12 @@ public class Ecommerce {
 
         Map.Entry<String, Double> topValueCategory = company.getTopCategoryBySumOfProductPrices();
         System.out.println("\nMost valuable category: " + topValueCategory.getKey() + " " + topValueCategory.getValue());
+
+        System.out.println("Price Greater Than 100" );
+        company.priceGreaterThan100();
+
+        System.out.println("products Belong To SameCategory PriceGrthan 100");
+        company.productsBelongToSameCategoryPriceGrthan100();
     }
 }
 

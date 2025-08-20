@@ -14,4 +14,6 @@ public interface ICompany {
     String getTopCategoryNameByProductCount();
     List<Product> getProductBelongingToMultipleCategories();
     Map.Entry<String, Double> getTopCategoryBySumOfProductPrices();
+    void priceGreaterThan100();
+    void productsBelongToSameCategoryPriceGrthan100();
 }

@@ -20,4 +20,5 @@ public class SubstringOccurrenceCounter {
         }
         return count;
     }
+
 }

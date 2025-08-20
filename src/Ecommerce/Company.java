@@ -75,4 +75,29 @@ public class Company implements ICompany {
             System.out.println(c.getName() + ": " + sum);
         }
     }
+    public void priceGreaterThan100(){
+        List<Product> priceGrThan100 = categories.stream().
+                flatMap(c -> c.getProducts().stream())
+                .filter(p -> p.getPrice() > 100)
+                .collect(Collectors.toList());
+        priceGrThan100.forEach(x->{
+            System.out.println("Price Greaterthan 100" + x);
+        });
+    }
+
+
+    public void productsBelongToSameCategoryPriceGrthan100() {
+        Map<String, List<Product>> result = categories.stream()
+                .collect(Collectors.toMap(
+                        Category::getName
+                        , c -> c.getProducts().stream()
+                                .filter(p -> p.getPrice() > 100).collect(Collectors.toList())));
+
+        result.forEach((cat, prod)->{
+            System.out.println("Category" + cat);
+            prod.forEach(p-> System.out.println(" " + p.getName() + " -$" + p.getPrice()));
+        });
+    }
+
+
 }

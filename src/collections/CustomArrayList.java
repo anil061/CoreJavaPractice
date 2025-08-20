@@ -1,6 +1,8 @@
 package collections;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class CustomArrayList extends ArrayList {
 
@@ -9,7 +11,7 @@ public class CustomArrayList extends ArrayList {
         if (this.contains(o)){
             return true;
         } else {
-            return false;
+            return super.add(o);
         }
     }
 
@@ -22,5 +24,9 @@ public class CustomArrayList extends ArrayList {
         list1.add(2);
 
         System.out.println(list1);
+
+        Set<String> st = new HashSet<>();
+
+
 }
 }

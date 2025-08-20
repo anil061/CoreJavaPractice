@@ -1,4 +1,5 @@
 /*
+
 package Java8;
 
 import java.util.AbstractSet;
@@ -50,9 +51,17 @@ public class CustomizeSet extends AbstractSet {
     public int size() {
         return 0;
     }
+
+    @Override
+    public boolean add(Object o) {
+        if(o != null){
+        return super.add(o);
+        }
+        return super.add(o);
+    }
+
     public static void main(String[] args){
         CustomizeSet customizeSet = new CustomizeSet();
-        customizeSet.add();
     }
 }
 */

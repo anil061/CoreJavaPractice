@@ -3,8 +3,8 @@ package InterviewPractice;
 public class ReverseWithoutBuildin {
     public static void main(String[] args) {
         String s = "Datta";
-        String buildinRevers = new StringBuilder(s).reverse().toString();
-        System.out.println("buildinRevers =====>" + buildinRevers);
+        String buildingRevers = new StringBuilder(s).reverse().toString();
+        System.out.println("buildingRevers =====>" + buildingRevers);
         char[] split;
         split = s.toCharArray();
         int left = 0;
