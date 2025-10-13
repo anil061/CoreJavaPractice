@@ -20,13 +20,19 @@ public class CustomerMain {
         List<Customer> listOfVision  = customerList.stream().filter(x -> "Vision".equalsIgnoreCase(x.getCategory()))
                 .collect(Collectors.toList());
 
-        Comparator<Customer> compareByCategory = Comparator.comparing(Customer::getCategory);
+        Comparator<Customer> comparing = Comparator.comparing(Customer::getCategory);
+        Map<String, Optional<Customer>> customerMap = customerList.stream()
+                .collect(
+                        groupingBy(Customer::getPolicyId, Collectors.reducing(BinaryOperator.maxBy(comparing)))
+                );
+        System.out.println("customerMap::::" + customerMap);
+        /*Comparator<Customer> compareByCategory = Comparator.comparing(Customer::getCategory);
         Map<String, Optional<Customer>> customerMap = customerList.stream()
                 .collect(
                         groupingBy(Customer::getPolicyId, Collectors.reducing(BinaryOperator.maxBy(compareByCategory)))
                 );
 
-        System.out.println("customerMap:::" + customerMap);
+        System.out.println("customerMap:::" + customerMap);*/
     }
 
 }

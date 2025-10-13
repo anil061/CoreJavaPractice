@@ -15,7 +15,19 @@ public class MaleFemalCount {
                 new Employee1("Laxmi", "Kuravapuram", "Female")
         );
 
-
+        int maleCount = 0;
+        int femaleCount = 0;
+        for(Employee1 ee:employeeList){
+            if(ee.getGender().equals("Male")){
+                maleCount++;
+            } else if(ee.getGender().equals("Female")) {
+                femaleCount++;
+            } else{
+                System.out.println("There is no Gender available");
+            }
+        }
+        System.out.println("maleCount ::" + maleCount);
+        System.out.println("FemaleCount ::" + femaleCount);
        /* Map<String, Long> genderCount = employeeList.stream()
                 .collect(Collectors.groupingBy(Employee1::getGender, Collectors.counting()));
         genderCount.forEach((gender, count) ->{

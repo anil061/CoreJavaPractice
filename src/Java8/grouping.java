@@ -15,9 +15,9 @@ public class grouping {
 
          Map<Integer, List<String>> integerListMap = ohMy.collect(Collectors.groupingBy(String:: length));
         System.out.println("Using List " + integerListMap);
-    Map<Integer, Set<String>> mapWithSet = ohMy.collect(Collectors.groupingBy(String::length, Collectors.toSet()));
+        Map<Integer, Set<String>> mapWithSet = ohMy.collect(Collectors.groupingBy(String::length, Collectors.toSet()));
         System.out.println("using Set as final output" + mapWithSet);
-      TreeMap<Integer, Set<String>> treeMapRef =  ohMy.collect(Collectors.groupingBy(String::length, TreeMap::new, Collectors.toSet()));
+        TreeMap<Integer, Set<String>> treeMapRef =  ohMy.collect(Collectors.groupingBy(String::length, TreeMap::new, Collectors.toSet()));
         System.out.println("using treemap" + treeMapRef);
 
     }

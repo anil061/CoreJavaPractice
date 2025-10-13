@@ -37,8 +37,12 @@ public class Company implements ICompany {
 
     @Override
     public String getTopCategoryNameByProductCount() {
-        return categories.stream()
+        /*return categories.stream()
                 .max(Comparator.comparingInt(c -> c.getProducts().size()))
+                .map(Category::getName)
+                .orElse("No Categories");*/
+        return categories.stream()
+                .max(Comparator.comparingInt(c->c.getProducts().size()))
                 .map(Category::getName)
                 .orElse("No Categories");
     }

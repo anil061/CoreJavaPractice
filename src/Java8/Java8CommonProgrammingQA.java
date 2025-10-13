@@ -25,7 +25,7 @@ public class Java8CommonProgrammingQA {
 
         List<Student> students = studentList.stream().filter(student -> student.getRank() > 50 && student.getRank() < 100)
                 .collect(Collectors.toList());
-        // System.out.println(students);
+        System.out.println("Students Whose Rank b/w 50 and 100" + students);
 
         //2. Find the Students who stays in Karnataka and sort them by their names
         List<Student> studentsByCity = studentList.stream().filter(student -> student.getCity().equals("Karnataka"))
