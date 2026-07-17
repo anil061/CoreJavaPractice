@@ -1,12 +1,14 @@
 package collections;
 
+import java.util.Arrays;
+
 public class DeleteArrayElement {
-    public static void main(String[] args){
-        int[] originalArray = {1,2,3,4,5,6,7,8,9};
+    public static void main(String[] args) {
+        int[] originalArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int elementToDelete = 3;
         int[] newarr;
         int indexToDelete = -1;
-        for(int i = 0; i< originalArray.length; i++){
+        for (int i = 0; i < originalArray.length; i++) {
             if (originalArray[i] == elementToDelete) {
                 indexToDelete = i;
                 break;
@@ -29,6 +31,17 @@ public class DeleteArrayElement {
         } else {
             System.out.println("Element not found in the array.");
         }
-    }
+        System.out.println("Using Java 8 Concept ");
+        deleteArrayElement();
     }
 
+    public static void deleteArrayElement() {
+        int[] oldArr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int deleteElement = 4;
+        int[] newArr = Arrays.stream(oldArr)
+                .filter(i -> i != 4)
+                .toArray();
+        Arrays.stream(newArr).boxed().forEach(x-> System.out.println("Values of Array "+ x));
+    }
+
+}

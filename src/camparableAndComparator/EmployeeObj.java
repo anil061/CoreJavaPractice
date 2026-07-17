@@ -1,5 +1,8 @@
 package camparableAndComparator;
 
+import lombok.Getter;
+
+@Getter
 public class EmployeeObj {
     private int id;
     private String  name;
@@ -12,16 +15,8 @@ public class EmployeeObj {
         this.name = name;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {

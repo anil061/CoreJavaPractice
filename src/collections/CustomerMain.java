@@ -1,7 +1,5 @@
 package collections;
 
-import Java8.grouping;
-
 import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.stream.Collectors;
@@ -26,6 +24,8 @@ public class CustomerMain {
                         groupingBy(Customer::getPolicyId, Collectors.reducing(BinaryOperator.maxBy(comparing)))
                 );
         System.out.println("customerMap::::" + customerMap);
+        System.out.println();
+        comparedByCategory();
         /*Comparator<Customer> compareByCategory = Comparator.comparing(Customer::getCategory);
         Map<String, Optional<Customer>> customerMap = customerList.stream()
                 .collect(
@@ -35,4 +35,14 @@ public class CustomerMain {
         System.out.println("customerMap:::" + customerMap);*/
     }
 
+    public static void comparedByCategory(){
+        List<Customer> customerList1= Arrays.asList(new Customer("P101", "john", "pari", "Dental")
+                ,new Customer("P102", "john", "pari", "Dental") ,
+                new Customer("P103", "Bob", "kit", "Vision"),
+                new Customer("P104", "Titan", "vityan", "Vision"),
+                new Customer("P105", "mike", "mit", "Health"));
+        Map<String, Optional<Customer>> compareByCategory = customerList1.stream()
+                .collect(groupingBy(Customer::getPolicyId, Collectors.reducing(BinaryOperator.maxBy(Comparator.comparing(Customer::getCategory)))));
+        System.out.println("In Static Method " + compareByCategory);
+    }
 }

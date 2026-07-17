@@ -39,5 +39,6 @@ public class DifferentWaysTogetCount {
         });
         System.out.println();
         System.out.println("countOfTypes===>" + countOfTypes);
+
     }
 }

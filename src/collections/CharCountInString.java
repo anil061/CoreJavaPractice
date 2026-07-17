@@ -1,5 +1,6 @@
 package collections;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -18,6 +19,32 @@ public class CharCountInString {
                         Collectors.counting()
                 ));
         frequencyOfChars.forEach((k,v)-> System.out.println(k + " :: " + v));
+        countofStrings(value);
     }
+
+    private static void countofStrings(String input) {
+        String lowerCase = input.toLowerCase();
+        StringBuilder sb = new StringBuilder();
+        Map<Character, Integer> frequencyMap = new HashMap<>();
+
+        for (int i = 0; i < lowerCase.length(); i++) {
+            char c = lowerCase.charAt(i);
+
+            if (Character.isWhitespace(c)) {
+                continue;
+            }
+            if(frequencyMap.containsKey(c)){
+              frequencyMap.put(c, frequencyMap.get(c)+1);
+            } else {
+                frequencyMap.put(c, 1);
+            }
+        }
+        //To print result
+        for(Map.Entry<Character, Integer> entry: frequencyMap.entrySet()){
+            System.out.println(entry.getKey() + "===" + entry.getValue());
+        }
+
+    }
+
 
 }

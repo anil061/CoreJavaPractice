@@ -15,8 +15,20 @@ public class ConvertStringToIntegers {
         List<Integer> convertedList = numbersAsString.stream()
                 .flatMap(str -> Arrays.stream(str.split(",")))
                 .map(Integer::parseInt)
-                .collect(Collectors.toList());
+                .toList();
 
         System.out.println("convertedList===> " + convertedList);
+        oldwaytoModify(numbersAsString);
     }
+
+    private static void oldwaytoModify(List<String> numbersAsString) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String s : numbersAsString) {
+            if (sb.length() > 0) sb.append(",");
+            sb.append(s);
+        }
+        System.out.println("Using String Builder ==>" + sb);
+    }
+
 }

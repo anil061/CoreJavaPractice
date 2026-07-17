@@ -1,9 +1,6 @@
 package camparableAndComparator;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /*Employee1 -
@@ -37,8 +34,7 @@ public class DuplicateEmployeeName {
        /* Map<Integer, List<String>> duplicates = listEmployees.stream()
                 .collect(Collectors.groupingBy(EmployeeObj::getId, Collectors.mapping(EmployeeObj::getName, Collectors.toList())));
 */
-        Set<EmployeeObj> printSingleValue = listEmployees.stream()
-                .collect(Collectors.toSet());
+        Set<EmployeeObj> printSingleValue = new HashSet<>(listEmployees);
         System.out.println("printSingleValue ===>" + printSingleValue);
         /*duplicates.entrySet().stream()
                 .filter(e-> e.getValue().size() >1)
