@@ -31,17 +31,16 @@ public class DuplicateEmployeeName {
                 new EmployeeObj(102, "Kumar")
         );
 
-       /* Map<Integer, List<String>> duplicates = listEmployees.stream()
+        Map<Integer, List<String>> duplicates = listEmployees.stream()
                 .collect(Collectors.groupingBy(EmployeeObj::getId, Collectors.mapping(EmployeeObj::getName, Collectors.toList())));
-*/
         Set<EmployeeObj> printSingleValue = new HashSet<>(listEmployees);
         System.out.println("printSingleValue ===>" + printSingleValue);
-        /*duplicates.entrySet().stream()
+        duplicates.entrySet().stream()
                 .filter(e-> e.getValue().size() >1)
                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         duplicates.forEach((id, name)->{
             System.out.println("Duplicate Id   :" + id + " Name " + name);
-        });*/
+        });
 
     }
 }

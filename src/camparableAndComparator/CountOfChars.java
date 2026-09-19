@@ -11,6 +11,7 @@ public class CountOfChars {
         boolean result  = repeatedChars(s1);
         printRepeatedChars(s1);
         countOfCharUsingStream(in);
+        countOfCharUsingStream1(in);
     }
     public static boolean repeatedChars(String str){
         Set<Character> visted = new HashSet<>();
@@ -22,6 +23,7 @@ public class CountOfChars {
         }
         return false;
     }
+
 
     public static void printRepeatedChars(String str) {
         Set<Character> visited = new HashSet<>();
@@ -56,5 +58,14 @@ public class CountOfChars {
                       .filter(x->x.getValue() > 1)
                       .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
         System.out.println("intCount===>" + intCount);
+    }
+
+    public static void countOfCharUsingStream1(Integer[] intAr){
+
+        Map<Integer, Long> intCount = Arrays.stream(intAr).collect(Collectors.groupingBy(x -> x, Collectors.counting()));
+           intCount.entrySet().stream()
+                   .filter(x->x.getValue()>1)
+                   .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        System.out.println("Practice IntCoun "+ intCount);
     }
 }
